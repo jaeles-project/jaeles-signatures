@@ -1,0 +1,11 @@
+# info to search signature
+id: mics-01-01
+
+requests:
+  - method: GET
+    redirect: true
+    path: >-
+      {{.URL}}
+    detections:
+      - >-
+        StatusCode() == 200

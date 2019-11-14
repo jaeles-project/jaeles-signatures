@@ -1,0 +1,19 @@
+# info to search signature
+id: sqli-01-01
+info:
+  name: SQL Injection Error based
+  risk: Critical
+type: fuzz
+
+payloads:
+  - '''"'
+  - '`}'
+
+requests:
+  - generators:
+      - Query("{{.payload}}")
+    detections:
+      - >-
+        StringSearch("response", "mysql_fetch_array")
+
+

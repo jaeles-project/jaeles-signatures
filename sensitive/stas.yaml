@@ -1,0 +1,31 @@
+id: sensitive-01-01
+# this is required
+type: list
+
+variables:
+  # we can put all in a file and load it
+  # - varbiale1: /tmp/spppp
+  - stats: >-
+      [.perf,server-status,.git/HEAD]
+
+requests:
+  - method: GET
+    redirect: true
+    # use template header in case you're not define it
+    use_template_header: true
+    path: >-
+     {{.BaseURL}}/{{.stats}}
+
+    detections:
+      - >-
+        StatusCode() == 200 && StringSearch("response", "Oracle iPlanet Web Server") && StringSearch("response", "ConnectionQueue")
+      - >-
+        StatusCode() == 200 && StringSearch("response", "Server Version") && StringSearch("response", "Current Time")
+
+
+
+# [optional] just reference info 
+reference:
+  author: whatever
+  links:
+    - https://example.com

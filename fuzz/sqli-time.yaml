@@ -1,0 +1,17 @@
+# info to search signature
+id: sqli-01-02
+info:
+  name: SQL Injection Time Based
+  risk: Critical
+type: fuzz
+
+payloads:
+    - sleep(1)
+
+requests:
+  - generators:
+      - Query("{{.payload}}")
+    detections:
+      - >-
+        ResponeTime() - OriginResponeTime() > 3
+

@@ -1,0 +1,14 @@
+# info to search signature
+id: fin-01-02
+info:
+  name: Squid Proxy detect
+  risk: Low
+
+requests:
+  - method: GET
+    redirect: true
+    path: >-
+     {{.BaseURL}}/
+    detections:
+      - >-
+        StringSearch("response", "squid") || StringSearch("response", "Squid")

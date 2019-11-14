@@ -1,0 +1,13 @@
+# info to search signature
+id: fuzz-01-05
+type: fuzz
+info:
+  name: Change Method
+
+requests:
+  - generators:
+      - Method()
+    detections:
+      - >-
+        Math.abs(ContentLength() - OriginContentLength()) > 1000 && OriginStatusCode() != StatusCode()
+

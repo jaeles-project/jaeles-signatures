@@ -1,0 +1,24 @@
+# info to search signature
+id: fuzz-01-04
+type: fuzz
+info:
+  name: Change Content Type
+
+# origin: gonna come from Burp
+payloads:
+    - text/xml
+    - text/html
+    - application/xml
+    - application/xhtml+xml
+    - application/vnd.mozilla.xul+xml  
+    - image/svg+xml
+    
+
+requests:
+  - generators:
+      # Change exist content type or adding new one
+      - Header("{{.payload}}", "Content-Type")
+    detections:
+      - >-
+        Math.abs(ContentLength() - OriginContentLength()) > 5000 && OriginStatusCode() != StatusCode()
+

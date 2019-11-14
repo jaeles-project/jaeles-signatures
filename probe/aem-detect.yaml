@@ -1,0 +1,15 @@
+# info to search signature
+id: fin-01-01
+info:
+  name: AEM detect
+  risk: Low
+
+requests:
+  - method: GET
+    redirect: true
+    path: >-
+     {{.BaseURL}}/
+    detections:
+      - >-
+        StatusCode() == 200 && ( StringSearch("response", "/content/dam/") || StringSearch("response", "/etc/libs/") )
+

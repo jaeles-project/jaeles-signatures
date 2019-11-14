@@ -1,0 +1,19 @@
+# info to search signature
+id: fuzz-01-06
+type: fuzz
+info:
+  name: Path traversel weird case
+
+# origin: gonna come from Burp
+payloads:
+    - '..;'
+    - '.json'
+    - '..'
+
+requests:
+  - generators:
+      - Path("{{.payload}}", "*")
+    detections:
+      - >-
+        Math.abs(ContentLength() - OriginContentLength()) > 1000 && OriginStatusCode() != StatusCode()
+

@@ -14,6 +14,18 @@
 This repo only contain default Signatures for Jaeles project. Please visit the
 Official Documention [here](https://jaeles-project.github.io/).
 
+[![asciicast](https://asciinema.org/a/281205.svg)](https://asciinema.org/a/281205)
+
+### Structure of the Repo
+Jaeles look for signature as a single file so you can stucture it as whatever you want. This is just an example.
+
+| Page           | Description                        |
+|----------------|------------------------------------|
+| **common**     | Simple request for common pattern  |
+| **cves**       | Implement some CVE |
+| **fuzz**       | Some common fuzz case for fuzz mode |
+| **probe**      | Used for detect some technology used by the target|
+
 ## License
 
 `Jaeles` is made with ♥  by [@j3ssiejjj](https://twitter.com/j3ssiejjj) and it is released under the MIT license.

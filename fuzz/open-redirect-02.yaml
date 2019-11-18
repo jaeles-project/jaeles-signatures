@@ -1,0 +1,33 @@
+# info to search signature
+id: open-redirect-fuzz-02
+type: fuzz
+info:
+  name: Open Redirect FUZZ on Param
+  risk: Medium
+
+variables:
+  - dest: "[google.com,example.com]"
+  - param: |
+      next
+      url
+      to
+      redirect_uri
+# origin: gonna come from Burp
+payloads:
+    - '?{{.param}}={{.dest}}'
+
+requests:
+  - generators:
+      # Replace payload in each path
+      - Path("{{.payload}}", "*")
+    detections:
+      - >-
+        (StatusCode() >= 300 && StatusCode() < 400) && StringSearch("response", "{{.payload}}")
+  # another request builder with URL encode the payload
+  - encoding: URL()
+    generators:
+      - Path("{{.payload}}", "*")
+    detections:
+      - >-
+        (StatusCode() >= 300 && StatusCode() < 400) && StringSearch("response", "{{.payload}}")
+

@@ -1,5 +1,5 @@
 # info to search signature
-id: fuzz-01-05
+id: mics-fuzz-01
 type: fuzz
 info:
   name: Change Method

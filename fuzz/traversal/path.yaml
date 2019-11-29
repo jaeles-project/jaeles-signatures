@@ -1,5 +1,5 @@
 # info to search signature
-id: fuzz-01-06
+id: traversal-fuzz-01
 type: fuzz
 info:
   name: Path traversel weird case
@@ -9,11 +9,15 @@ payloads:
     - '..;'
     - '.json'
     - '..'
+    - '.-;'
+    - '%20'
+    - '#'
+    - '?uniquestring'
 
 requests:
   - generators:
       - Path("{{.payload}}", "*")
     detections:
       - >-
-        Math.abs(ContentLength() - OriginContentLength()) > 1000 && OriginStatusCode() != StatusCode()
+        Math.abs(ContentLength() - OriginContentLength()) > 1000  && !StringSearch("response", "Not Found") && OriginStatusCode() != StatusCode()
 

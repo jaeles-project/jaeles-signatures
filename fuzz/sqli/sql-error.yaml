@@ -1,17 +1,19 @@
 # info to search signature
-id: sqli-01-02
+id: sqli-fuzz-01
 info:
-  name: SQL Injection Time Based
+  name: SQL Injection Error based
   risk: Critical
 type: fuzz
 
 payloads:
-    - sleep(1)
+  - '''"'
+  - '`}'
 
 requests:
   - generators:
       - Query("{{.payload}}")
     detections:
       - >-
-        ResponeTime() - OriginResponeTime() > 3
+        StringSearch("response", "mysql_fetch_array")
+
 

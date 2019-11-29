@@ -6,28 +6,42 @@ info:
   risk: Medium
 
 variables:
-  - dest: "[google.com,example.com]"
+  - dest: |
+      google.com
+      example.com
+      google.com%00example.com
+      google.com%0d%0aexample.com
   - param: |
       next
       url
-      to
+      target
+      rurl
+      dest
+      destination
+      redir
       redirect_uri
+      redirect_url
+      redirect
+      view
+      to
+
 # origin: gonna come from Burp
 payloads:
-    - '?{{.param}}={{.dest}}'
+    - '{{.dest}}'
 
 requests:
   - generators:
       # Replace payload in each path
-      - Path("{{.payload}}", "*")
+      - Query("{{.payload}}", "{{.param}}")
     detections:
       - >-
         (StatusCode() >= 300 && StatusCode() < 400) && StringSearch("response", "{{.payload}}")
-  # another request builder with URL encode the payload
   - encoding: URL()
     generators:
-      - Path("{{.payload}}", "*")
+      # Replace payload in each path
+      - Query("{{.payload}}", "{{.param}}")
     detections:
       - >-
         (StatusCode() >= 300 && StatusCode() < 400) && StringSearch("response", "{{.payload}}")
+
 

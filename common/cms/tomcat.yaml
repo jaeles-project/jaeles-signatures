@@ -1,0 +1,132 @@
+# info to search signature
+id: cred-01-01
+info:
+  name: Tomcat Default Credentials
+  risk: High
+
+origin:
+  method: GET
+  redirect: true
+  headers:
+    - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:55.0) Gecko/20100101 Firefox/55
+  path: >-
+    {{.BaseURL}}
+
+variables:
+  - tomcat: |
+      examples/../manager/html
+      examples/%2e%2e/manager/html
+      examples/%252e%252e/manager/html
+      host-manager
+      host-manager/host-manager.xml
+      host-manager/list
+      html
+      list
+      manager
+      manager/html
+      manager/jmxproxy
+      manager/list
+      manager/manager.xml
+  - cred: |
+      YWRtaW46Cg==
+      YWRtaW46YWRtYW5hZ2VyCg==
+      YWRtaW46YWRtaW4K
+      YWRtaW46YWRtaW4K
+      QURNSU46QURNSU4K
+      YWRtaW46YWRyb2xlMQo=
+      YWRtaW46YWRyb290Cg==
+      YWRtaW46YWRzM2NyZXQK
+      YWRtaW46YWR0b21jYXQK
+      YWRtaW46YWR2YWdyYW50Cg==
+      YWRtaW46cGFzc3dvcmQK
+      YWRtaW46cGFzc3dvcmQxCg==
+      YWRtaW46UGFzc3dvcmQxCg==
+      YWRtaW46dG9tY2F0Cg==
+      YWRtaW46dmFncmFudAo=
+      Ym90aDphZG1hbmFnZXIK
+      Ym90aDphZG1pbgo=
+      Ym90aDphZHJvbGUxCg==
+      Ym90aDphZHJvb3QK
+      Ym90aDphZHMzY3JldAo=
+      Ym90aDphZHRvbWNhdAo=
+      Ym90aDphZHZhZ3JhbnQK
+      Ym90aDp0b21jYXQK
+      Y3hzZGs6a2RzeGMK
+      ajJkZXBsb3llcjpqMmRlcGxveWVyCg==
+      bWFuYWdlcjphZG1hbmFnZXIK
+      bWFuYWdlcjphZG1pbgo=
+      bWFuYWdlcjphZHJvbGUxCg==
+      bWFuYWdlcjphZHJvb3QK
+      bWFuYWdlcjphZHMzY3JldAo=
+      bWFuYWdlcjphZHRvbWNhdAo=
+      bWFuYWdlcjphZHZhZ3JhbnQK
+      bWFuYWdlcjptYW5hZ2VyCg==
+      b3Z3ZWJ1c3I6T3ZXKmJ1c3IxCg==
+      UUNDOlFMb2dpYzY2Cg==
+      cm9sZTE6YWRtYW5hZ2VyCg==
+      cm9sZTE6YWRtaW4K
+      cm9sZTE6YWRyb2xlMQo=
+      cm9sZTE6YWRyb290Cg==
+      cm9sZTE6YWRzM2NyZXQK
+      cm9sZTE6YWR0b21jYXQK
+      cm9sZTE6YWR2YWdyYW50Cg==
+      cm9sZTE6cm9sZTEK
+      cm9sZTE6dG9tY2F0Cg==
+      cm9sZTpjaGFuZ2V0aGlzCg==
+      cm9vdDphZG1hbmFnZXIK
+      cm9vdDphZG1pbgo=
+      cm9vdDphZHJvbGUxCg==
+      cm9vdDphZHJvb3QK
+      cm9vdDphZHMzY3JldAo=
+      cm9vdDphZHRvbWNhdAo=
+      cm9vdDphZHZhZ3JhbnQK
+      cm9vdDpjaGFuZ2V0aGlzCg==
+      cm9vdDpvd2FzcGJ3YQo=
+      cm9vdDpwYXNzd29yZAo=
+      cm9vdDpwYXNzd29yZDEK
+      cm9vdDpQYXNzd29yZDEK
+      cm9vdDpyMDB0Cg==
+      cm9vdDpyb290Cg==
+      cm9vdDp0b29yCg==
+      dG9tY2F0Ogo=
+      dG9tY2F0OmFkbWFuYWdlcgo=
+      dG9tY2F0OmFkbWluCg==
+      dG9tY2F0OmFkbWluCg==
+      dG9tY2F0OmFkcm9sZTEK
+      dG9tY2F0OmFkcm9vdAo=
+      dG9tY2F0OmFkczNjcmV0Cg==
+      dG9tY2F0OmFkdG9tY2F0Cg==
+      dG9tY2F0OmFkdmFncmFudAo=
+      dG9tY2F0OmNoYW5nZXRoaXMK
+      dG9tY2F0OnBhc3N3b3JkCg==
+      dG9tY2F0OnBhc3N3b3JkMQo=
+      dG9tY2F0OnMzY3JldAo=
+      dG9tY2F0OnMzY3JldAo=
+      dG9tY2F0OnRvbWNhdAo=
+      eGFtcHA6eGFtcHAK
+      ZGVtbzpkZW1vCg==
+
+requests:
+  - method: GET
+    redirect: true
+    path: >-
+     {{.URL}}{{.Port}}
+    headers:
+      - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:55.0) Gecko/20100101 Firefox/55
+      - Authorization: Basic {{.cred}}
+    detections:
+      - >-
+        OriginStatusCode() != StatusCode() && StatusCode() < 400
+  - method: POST
+    redirect: true
+    path: >-
+     {{.URL}}
+    headers:
+      - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:55.0) Gecko/20100101 Firefox/55
+      - Authorization: Basic {{.cred}}
+    detections:
+      - >-
+        OriginStatusCode() != StatusCode() && StatusCode() < 400
+
+reference:
+  - link: https://github.com/danielmiessler/SecLists/blob/master/Passwords/Default-Credentials/default-passwords.csv

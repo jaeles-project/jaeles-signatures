@@ -1,5 +1,5 @@
 # info to search signature
-id: fuzz-01-04
+id: mics-fuzz-02
 type: fuzz
 info:
   name: Change Content Type

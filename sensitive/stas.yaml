@@ -1,12 +1,12 @@
-id: sensitive-01-01
-# this is required
+id: sensitive-01-02
 type: list
+info:
+  name: PHP Info
+  risk: Medium
 
 variables:
-  # we can put all in a file and load it
-  # - varbiale1: /tmp/spppp
   - stats: >-
-      [.perf,server-status,.git/HEAD]
+      [.perf,server-status]
 
 requests:
   - method: GET
@@ -21,8 +21,6 @@ requests:
         StatusCode() == 200 && StringSearch("response", "Oracle iPlanet Web Server") && StringSearch("response", "ConnectionQueue")
       - >-
         StatusCode() == 200 && StringSearch("response", "Server Version") && StringSearch("response", "Current Time")
-
-
 
 # [optional] just reference info 
 reference:

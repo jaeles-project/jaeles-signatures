@@ -13,7 +13,12 @@ payloads:
     - '{{.dest}}'
     - '\{{.dest}}'
     - '//{{.dest}}/'
-
+    - '\/\/{{.dest}}/'
+    - '%00\/\/{{.dest}}/'
+    - '////{{.dest}}/%2f%2e%2e'
+    - '/%5c{{.dest}}/%2f%2e%2e'
+    - '/〱{{.dest}}/%2f%2e%2e'
+    - '@{{.dest}}'
 requests:
   - generators:
       # Replace payload in each path
@@ -21,7 +26,7 @@ requests:
       - Path("{{.original}}/{{.payload}}", "*")
     detections:
       - >-
-        (StatusCode() >= 300 && StatusCode() < 400) && StringSearch("response", "{{.payload}}")
+        (StatusCode() >= 300 && StatusCode() < 400)
   # another request builder with URL encode the payload
   - encoding: URL()
     generators:
@@ -30,5 +35,5 @@ requests:
       - Path("{{.original}}/{{.payload}}", "*")
     detections:
       - >-
-        (StatusCode() >= 300 && StatusCode() < 400) && StringSearch("response", "{{.payload}}")
+        (StatusCode() >= 300 && StatusCode() < 400)
 

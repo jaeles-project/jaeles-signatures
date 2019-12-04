@@ -55,6 +55,9 @@ Example for complex request in fuzz mode [open-redirect-02.yaml](https://github.
 ├── fuzz
 │   ├── command-injection
 │   │   └── ci-base.yaml
+│   ├── cors
+│   │   ├── cors-base.yaml
+│   │   └── cors-bypass.yaml
 │   ├── crlf
 │   │   └── crlf-potential.yaml
 │   ├── file-inclusion
@@ -67,7 +70,6 @@ Example for complex request in fuzz mode [open-redirect-02.yaml](https://github.
 │   │   └── open-redirect-path.yaml
 │   ├── sqli
 │   │   ├── sql-error.yaml
-│   │   ├── sqli-polyglot.yaml
 │   │   └── sqli-time.yaml
 │   ├── ssti
 │   │   └── template-injection.yaml

@@ -20,9 +20,9 @@ requests:
 
     detections:
       - >-
-        StatusCode == 200 && StringSearch("response", "root:x:0:0:root") && StringSearch("response", "root:x:0:0:root")
+        StatusCode() == 200 && StringSearch("response", "root:x:0:0:root") && StringSearch("response", "root:x:0:0:root")
       - >-
-        StatusCode == 200 && StringSearch("response", "/bin/bash")
+        StatusCode() == 200 && StringSearch("response", "/bin/bash")
 
 # [optional] just reference info 
 reference:

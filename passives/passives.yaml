@@ -1,0 +1,12 @@
+name: 'common pattern'
+desc: 'grep for common interesting pattern'
+rules:
+  - id: directory-listing-01
+    reason: 'Directory Listing'
+    detections:
+      - StringSearch("response", 'Index of /') && StringSearch("response", '>Last Modified<')
+
+  - id: sensitive-pattern-01
+    reason: 'PHP Info'
+    detections:
+      - StringSearch("response", 'PHP Configuration') && StringSearch("response", '<title>phpinfo()</title>')

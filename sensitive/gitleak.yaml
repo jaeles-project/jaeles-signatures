@@ -10,17 +10,18 @@ variables:
       .git/HEAD
       .git/config
       .git/logs/HEAD
-      .git/refs/remotes/origin/HEAD
       .git/refs/tags
       .gitignore.swp
 requests:
   - method: GET
     redirect: false
-    path: >-
+    url: >-
       {{.BaseURL}}/{{.gitfile}}
     detections:
       - >-
-        StatusCode() == 200 && StringSearch("response","ref:")
+        StatusCode() == 200 && StringSearch("response","ref: refs")
+      - >-
+        StatusCode() == 200 && StringSearch("response","[remote ") && StringSearch("response","[branch ")
 
 reference:
   - author: 0xd0ff9

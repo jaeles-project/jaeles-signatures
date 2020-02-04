@@ -4,7 +4,7 @@ id: mics-01-01
 requests:
   - method: GET
     redirect: true
-    path: >-
+    url: >-
       {{.URL}}
     detections:
       - >-

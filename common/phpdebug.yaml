@@ -7,7 +7,7 @@ info:
 requests:
   - method: GET
     redirect: true
-    path: >-
+    url: >-
       {{.BaseURL}}/_debugbar/open?max=20&offset=0
     detections:
       - >-

@@ -7,7 +7,7 @@ info:
 requests:
   - method: GET
     redirect: true
-    path: >-
+    url: >-
      {{.BaseURL}}/
     detections:
       - >-

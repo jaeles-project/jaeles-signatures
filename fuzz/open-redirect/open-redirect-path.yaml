@@ -23,7 +23,7 @@ requests:
   - generators:
       # Replace payload in each path
       - Path("{{.payload}}", "*")
-      - Path("{{.original}}/{{.payload}}", "*")
+      - Path("[[.original]]/{{.payload}}", "*")
     detections:
       - >-
         (StatusCode() >= 300 && StatusCode() < 400)
@@ -32,7 +32,7 @@ requests:
     generators:
       # Replace payload in each path
       - Path("{{.payload}}", "*")
-      - Path("{{.original}}/{{.payload}}", "*")
+      - Path("[[.original]]/{{.payload}}", "*")
     detections:
       - >-
         (StatusCode() >= 300 && StatusCode() < 400)

@@ -17,7 +17,7 @@ variables:
 requests:
   - method: GET
     redirect: false
-    path: >-
+    url: >-
       {{.BaseURL}}/{{.dirsearch}}
     detections:
       - >-

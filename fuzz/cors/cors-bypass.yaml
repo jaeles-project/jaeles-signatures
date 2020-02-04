@@ -12,8 +12,8 @@ payloads:
 
 requests:
   - generators:
-      - Header("{{.payload}}{{.original}}", "Origin")
-      - Header("{{.payload}}{{.original}}", "Referer")
+      - Header("{{.payload}}[[.original]]", "Origin")
+      - Header("{{.payload}}[[.original]]", "Referer")
       - Header("{{.payload}}{{.Domain}}", "Origin")
       - Header("{{.payload}}{{.Domain}}", "Referer")
       - Header("{{.payload}}%0a%0d{{.Domain}}", "Referer")
@@ -26,13 +26,13 @@ requests:
   - generators:
       - Header("{{.payload}}{{.Domain}}", "Origin")
       - Header("{{.payload}}{{.Domain}}", "Referer")
-      - Header("{{.original}}{{.payload}}", "Origin")
-      - Header("{{.original}}{{.payload}}", "Referer")
-      - Header("{{.original}}%0a%0d{{.payload}}", "Origin")
-      - Header("{{.original}}%0a%0d{{.payload}}", "Referer")
+      - Header("[[.original]]{{.payload}}", "Origin")
+      - Header("[[.original]]{{.payload}}", "Referer")
+      - Header("[[.original]]%0a%0d{{.payload}}", "Origin")
+      - Header("[[.original]]%0a%0d{{.payload}}", "Referer")
     detections:
       - >-
-        StringSearch("response","Access-Control-Allow-Origin: {{.original}}{{.payload}}") && StringSearch("response","Access-Control-Allow-Credentials: true")
+        StringSearch("response","Access-Control-Allow-Origin: [[.original]]{{.payload}}") && StringSearch("response","Access-Control-Allow-Credentials: true")
       - >-
         RegexSearch("response","Access-Control-Allow-Origin.*{{.payload}}") && StringSearch("response","Access-Control-Allow-Credentials: true")
       - >-

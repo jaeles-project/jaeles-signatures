@@ -24,69 +24,19 @@ Jaeles look for signature as a single file so you can stucture it as whatever yo
 | **fuzz**       | Some common case for fuzz mode |
 | **sensitvie**       | Some common path with sensitive information |
 | **probe**      | Used for detect some technology used by the target|
+| **passives**      | Used for [passive detection](https://jaeles-project.github.io/signatures/passive/)|
 
 
 ### Examples
 
-Example for simple single request in scan mode [phpdebug.yaml](https://github.com/jaeles-project/jaeles-signatures/blob/master/fuzz/phpdebug.yaml)
+Example for simple single signature in scan mode [phpdebug.yaml](https://github.com/jaeles-project/jaeles-signatures/blob/master/fuzz/phpdebug.yaml)
 
-Example for complex list request in fuzz mode [jira-lfi.yaml](https://github.com/jaeles-project/jaeles-signatures/blob/master/cves/jira-lfi.yaml)
+Example for complex signature in scan mode [phpdebug.yaml](https://github.com/jaeles-project/jaeles-signatures/blob/master/fuzz/phpdebug.yaml)
 
-Example for complex request in fuzz mode [open-redirect-02.yaml](https://github.com/jaeles-project/jaeles-signatures/blob/master/fuzz/open-redirect/open-redirect-param.yaml)
+Example for simple list signature in fuzz mode [content-type.yaml](https://github.com/jaeles-project/jaeles-signatures/blob/master/fuzz/mics/content-type.yaml)
 
+Example for complex signature in fuzz mode [open-redirect-02.yaml](https://github.com/jaeles-project/jaeles-signatures/blob/master/fuzz/open-redirect/open-redirect-param.yaml)
 
-### Base Signature Summary
-
-```
-.
-├── common
-│   ├── cms
-│   │   └── tomcat.yaml
-│   ├── directory-listing.yaml
-│   ├── joomla-host-injection.yaml
-│   └── phpdebug.yaml
-├── cves
-│   ├── jenkins-xss.yaml
-│   ├── jira-lfi.yaml
-│   ├── jira-ssrf.yaml
-│   ├── openproject-sqli.yaml
-│   ├── php7-rce.yaml
-│   └── solr-rce.yaml
-├── fuzz
-│   ├── command-injection
-│   │   └── ci-base.yaml
-│   ├── cors
-│   │   ├── cors-base.yaml
-│   │   └── cors-bypass.yaml
-│   ├── crlf
-│   │   └── crlf-potential.yaml
-│   ├── file-inclusion
-│   │   └── lfi-nix.yaml
-│   ├── mics
-│   │   ├── content-type.yaml
-│   │   └── method.yaml
-│   ├── open-redirect
-│   │   ├── open-redirect-param.yaml
-│   │   └── open-redirect-path.yaml
-│   ├── sqli
-│   │   ├── sql-error.yaml
-│   │   └── sqli-time.yaml
-│   ├── ssti
-│   │   └── template-injection.yaml
-│   └── traversal
-│       └── path.yaml
-├── mics
-│   ├── reachable.yaml
-│   └── replay.yaml
-├── probe
-│   ├── aem-detect.yaml
-│   └── squid-detect.yaml
-└── sensitive
-    ├── git-leak.yaml
-    ├── phpinfo.yaml
-    └── stas.yaml
-
-```
 
 ## Showcases
 More showcase [here](https://jaeles-project.github.io/showcases/)

@@ -6,7 +6,7 @@ info:
 requests:
   - method: GET
     redirect: false
-    path: >-
+    url: >-
      {{.BaseURL}}/index.php
     middlewares:
       # not recommend using too much concurrency when calling other Command

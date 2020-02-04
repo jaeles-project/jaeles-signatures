@@ -7,7 +7,7 @@ info:
 requests:
   - method: GET
     redirect: true
-    path: >-
+    url: >-
      {{.BaseURL}}
     headers:
       - Host: whateveruniqqe.com

@@ -13,5 +13,5 @@ requests:
       - Query("{{.payload}}")
     detections:
       - >-
-        ResponeTime() - OriginResponeTime() > 3
+        ResponseTime() > 5
 

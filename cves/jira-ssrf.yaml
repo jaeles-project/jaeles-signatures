@@ -1,5 +1,5 @@
 # info to search signature
-id: cve-01-02
+id: cve-jira-02
 type: list
 info:
   name: Jira SSRF CVE-2019-8451
@@ -11,7 +11,9 @@ variables:
       /jira/
       /wiki/
       /confluence/
-  - ssrf: "[google.com,example.com]"
+  - ssrf: |
+      google.com
+      example.com
 
 requests:
   - method: GET

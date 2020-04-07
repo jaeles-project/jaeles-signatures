@@ -1,5 +1,5 @@
 # info to search signature
-id: cve-01-01
+id: cve-jira-01
 info:
   name: Confluence LFI CVE-2019-3396
 

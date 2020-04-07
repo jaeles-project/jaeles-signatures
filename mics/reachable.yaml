@@ -1,11 +1,16 @@
 # info to search signature
 id: mics-01-01
+type: fuzz
+info:
+  name: Just send the request again
+  risk: Info
+
+payloads:
+    - "1"
 
 requests:
-  - method: GET
-    redirect: true
-    url: >-
-      {{.URL}}
+  - generators:
+      - Header('Jaeles {{.payload}}', 'X-Jaeles')
     detections:
       - >-
-        StatusCode() == 200
+        StatusCode() == 999

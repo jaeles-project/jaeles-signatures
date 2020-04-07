@@ -1,7 +1,6 @@
-# info to search signature
-id: cve-02-01
+id: cve-jenkins-01
 info:
-  name: AEM XSS SWF
+  name: Jenkins XSS
 
 requests:
   - method: GET

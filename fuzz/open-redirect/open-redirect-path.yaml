@@ -6,7 +6,10 @@ info:
   risk: Medium
 
 variables:
-  - dest: "[google.com,example.com,http://example.com]"
+  - dest: |
+      google.com
+      example.com
+      http://example.com
 
 # origin: gonna come from Burp
 payloads:

@@ -6,7 +6,9 @@ info:
   risk: Medium
 
 variables:
-  - prefix: "[%0D%0A,%E5%98%8A%E5%98%8D]"
+  - prefix: |
+      %0D%0A
+      %E5%98%8A%E5%98%8D
 
 payloads:
     - 'unimmque{{.prefix}}mmque'

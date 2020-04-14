@@ -1,5 +1,5 @@
 # info to search signature
-id: open-param-fuzz-01
+id: open-param-fuzz-base
 type: fuzz
 info:
   name: Open Redirect FUZZ on Param
@@ -10,27 +10,6 @@ variables:
       google.com
       http://google.com
       example.com
-  - name: |
-      next
-      url
-      target
-      to
-      rurl
-      return
-      dest
-      redirect
-      destination
-      redirect_uri
-      redirect_url
-      redir
-      view
-      image_url
-      go
-      returnTo
-      return_to
-      checkout_url
-      continue
-      return_path
 
 payloads:
   - '{{.dest}}'
@@ -48,8 +27,10 @@ payloads:
   - '@{{.dest}}'
 
 requests:
+    # generate request base on original param
   - generators:
-      - Query("{{.payload}}", "{{.name}}")
+      - Query("{{.payload}}")
+      - Query("[[.original]]{{.payload}}")
     detections:
       - >-
         (StatusCode() >= 300 && StatusCode() < 400) && StringSearch("resHeaders", "Location: https://{{.payload}}") && !StringSearch("resHeaders", "Location: {{.BaseURL}}")

@@ -18,7 +18,6 @@ requests:
   - generators:
       # Change exist content type or adding new one
       - Query("{{.payload}}")
-      - Body("{{.payload}}")
       - Query("{{.payload}}", "download")
       - Query("{{.payload}}", "include")
       - Query("{{.payload}}", "file")

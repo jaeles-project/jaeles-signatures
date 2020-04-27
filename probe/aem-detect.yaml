@@ -6,10 +6,10 @@ info:
 
 requests:
   - method: GET
-    redirect: true
+    redirect: false
     url: >-
      {{.BaseURL}}/
     detections:
       - >-
-        StatusCode() == 200 && ( StringSearch("response", "/content/dam/") || StringSearch("response", "/etc/libs/") )
+        StatusCode() == 200 && ( StringSearch("response", "/content/dam/") || StringSearch("response", "/etc/clientlibs/") )
 

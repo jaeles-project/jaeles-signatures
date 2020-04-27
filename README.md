@@ -3,7 +3,7 @@
   <img alt="Jaeles" src="https://image.flaticon.com/icons/svg/1432/1432425.svg" height="140" />
   <p align="center">
     <a href=""><img alt="Software License" src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square"></a>
-    <a href="http://github.com/jaeles-project/jaeles"><img alt="Release" src="https://img.shields.io/badge/version-beta%20v0.7-red.svg"></a>
+    <a href="http://github.com/jaeles-project/jaeles"><img alt="Release" src="https://img.shields.io/badge/version-beta%20v0.8-red.svg"></a>
   </p>
 </p>
 
@@ -75,6 +75,8 @@ Example for simple list signature in fuzz mode [content-type.yaml](https://githu
 
 Example for complex signature in fuzz mode [open-redirect-02.yaml](https://github.com/jaeles-project/jaeles-signatures/blob/master/fuzz/open-redirect/open-redirect-param.yaml)
 
+### Note for using Fuzz signatures
+Fuzz signatures may have many false positive because I can't defined exactly what is vulnerable for everything. So make sure you know what are you doing.
 
 ## Showcases
 More showcase [here](https://jaeles-project.github.io/showcases/)

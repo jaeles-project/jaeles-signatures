@@ -79,13 +79,12 @@ Example for complex signature in fuzz mode [open-redirect-02.yaml](https://githu
 Fuzz signatures may have many false positive because I can't defined exactly what is vulnerable for everything. So make sure you gotta know what are you doing here.
 
 ## Showcases
-More showcase [here](https://jaeles-project.github.io/showcases/)
 
-[![asciicast](https://asciinema.org/a/281205.svg)](https://asciinema.org/a/281205)
-<p align="center">
-Detect Jira SSRF CVE-2019-8451
-</p>
+|  ![apache-status.png](https://github.com/jaeles-project/jaeles-plugins/blob/master/imgs/apache-status.png?raw=true) [**Apache Server Status**](https://youtu.be/nkBcIvzi3H4)  |  ![tableau-dom-xss.png](https://github.com/jaeles-project/jaeles-plugins/blob/master/imgs/tableau-dom-xss.png?raw=true) [**Tableau DOM XSS CVE-2019-19719**](https://youtu.be/EG7Qmt8kt58) |
+|:----------:|:-------------:|
+| ![rabbitmq-cred.png](https://github.com/jaeles-project/jaeles-plugins/blob/master/imgs/rabbitmq-cred.png?raw=true) [**RabbitMQ Default Credentials**](https://youtu.be/ed4n1sCNu3s) | ![jenkins-xss.png](https://github.com/jaeles-project/jaeles-plugins/blob/master/imgs/jenkins-xss.png?raw=true) [**Jenkins XSS CVE-2020-2096**](https://youtu.be/JfihhEOEWSE) |
 
+<h4 align='center'> More showcase can be found <a href="https://jaeles-project.github.io/showcases/">here</a></h4>
 
 ## License
 

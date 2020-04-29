@@ -6,13 +6,11 @@ info:
   risk: Info
 
 payloads:
-    - "1"
+    - '{{.Version}}'
 
 requests:
-  # just keep the same request as input
   - generators:
-      - Null()
+      - Header('{{.payload}}', 'X-Jaeles')
     detections:
-    # dummy detection that always return false
       - >-
-        0 == 1
+        StatusCode() == 999

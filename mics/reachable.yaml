@@ -1,16 +1,18 @@
 # info to search signature
-id: mics-01-01
-type: fuzz
+id: mics-01-05
+passive: true
 info:
-  name: Just send the request again
-  risk: Info
+  name: Common Error detect
 
-payloads:
-    - "1"
+params:
+  - root: '{{.Raw}}'
 
 requests:
-  - generators:
-      - Header('Jaeles {{.payload}}', 'X-Jaeles')
+  - method: GET
+    redirect: false
+    timeout: 10
+    url: >-
+      {{.root}}
     detections:
       - >-
-        StatusCode() == 999
+        CommonError()

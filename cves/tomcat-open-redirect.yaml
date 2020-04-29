@@ -1,0 +1,18 @@
+id: cve-tomcat-04
+info:
+  name: Tomcat Open Redirect - CVE-2018-11784
+  risk: High
+
+requests:
+  - method: GET
+    redirect: false
+    url: >-
+      {{.BaseURL}}//google.com
+    headers:
+      - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:55.0) Gecko/20100101 Firefox/55
+    detections:
+      - >-
+        StatusCode() == 302 && StringSearch('resHeader', 'google.com') && !RegexSearch('resHeader', 'Location.*{{.Domain}}')
+
+reference:
+  - link: https://github.com/breaktoprotect/CVE-2017-12615

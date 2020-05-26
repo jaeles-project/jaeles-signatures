@@ -1,0 +1,21 @@
+id: citrix-share
+info:
+  name: Citrix ShareFile Exposed - CVE-2020-7473
+  risk: High
+
+params:
+  - root: "{{.BaseURL}}"
+
+requests:
+  - method: GET
+    redirect: false
+    url: >-
+      {{.root}}/UploadTest.aspx
+    headers:
+      - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:55.0) Gecko/20100101 Firefox/55
+    detections:
+      - >-
+        StatusCode() == 200 && ContentLength('body') == 0 && StringSearch('resHeader', 'Access-Control-Allow-Origin: *')
+
+reference:
+  - link: https://support.citrix.com/article/CTX269106

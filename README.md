@@ -3,7 +3,7 @@
   <img alt="Jaeles" src="https://image.flaticon.com/icons/svg/1432/1432425.svg" height="140" />
   <p align="center">
     <a href=""><img alt="Software License" src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square"></a>
-    <a href="http://github.com/jaeles-project/jaeles"><img alt="Release" src="https://img.shields.io/badge/version-beta%20v0.8-red.svg"></a>
+    <a href="http://github.com/jaeles-project/jaeles"><img alt="Release" src="https://img.shields.io/github/v/release/jaeles-project/jaeles.svg"></a>
   </p>
 </p>
 
@@ -17,10 +17,11 @@ Please read the Official Documention [here](https://jaeles-project.github.io/sig
 
 Try to clone signatures folder to somewhere like this
 ```
-git clone https://github.com/jaeles-project/jaeles-signatures /tmp/jaeles-signatures/
+git clone --depth=1 https://github.com/jaeles-project/jaeles-signatures /tmp/jaeles-signatures/
 ```
 
 then reload them in the DB with this command.
+
 ```
 jaeles config -a reload --signDir /tmp/jaeles-signatures
 ```
@@ -44,8 +45,8 @@ Examples:
   jaeles scan -s 'jira' -s 'ruby' -u target.com
   jaeles scan -c 50 -s 'java' -x 'tomcat' -U list_of_urls.txt
   jaeles scan -G -c 50 -s '/tmp/custom-signature/.*' -U list_of_urls.txt
-  jaeles scan -v -s '~/my-signatures/products/wordpress/.*' -u 'https://wp.example.com' -p 'root=[[.URL]]'
-  cat urls.txt | grep 'interesting' | jaeles scan -L 5 -c 50 -s 'fuzz/.*' -U list_of_urls.txt --proxy http://127.0.0.1:8080
+  jaeles scan -v -s '~/my-signatures/products/wordpress/.*' -u 'https://wp.example.com/blog/' -p 'root=[[.URL]]'
+  cat urls.txt | grep 'interesting' | jaeles scan -c 50 -s /tmp/jaeles-signatures/cves/sample.yaml -U list_of_urls.txt --proxy http://127.0.0.1:8080
 
 ```
 
@@ -53,17 +54,16 @@ Examples:
 
 ### Structure of the Repo
 
-Jaeles look for signature as a single file so you can stucture it as whatever you want. This is just an example.
+Jaeles look for signature as a single file so you can structure it as whatever you want. This is just an example.
 
 | Page           | Description                        |
 |----------------|------------------------------------|
-| **common**     | Implement misconfiguration for some popular app  |
+| **common**     | Implement misconfiguration for some popular apps  |
 | **cves**       | Implement some CVE |
-| **fuzz**       | Some common case for fuzz mode |
 | **sensitvie**       | Some common path with sensitive information |
 | **probe**      | Used for detect some technology used by the target|
 | **passives**      | Used for [passive detection](https://jaeles-project.github.io/signatures/passive/)|
-
+| **fuzz**       | Some common case for fuzz mode (I know a lot of false positive here) |
 
 ### Examples
 

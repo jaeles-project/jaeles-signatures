@@ -65,16 +65,6 @@ Jaeles look for signature as a single file so you can structure it as whatever y
 | **passives**      | Used for [passive detection](https://jaeles-project.github.io/signatures/passive/)|
 | **fuzz**       | Some common case for fuzz mode (I know a lot of false positive here) |
 
-### Examples
-
-Example for simple single signature in scan mode [phpdebug.yaml](https://github.com/jaeles-project/jaeles-signatures/blob/master/fuzz/phpdebug.yaml)
-
-Example for complex signature in scan mode [phpdebug.yaml](https://github.com/jaeles-project/jaeles-signatures/blob/master/fuzz/phpdebug.yaml)
-
-Example for simple list signature in fuzz mode [content-type.yaml](https://github.com/jaeles-project/jaeles-signatures/blob/master/fuzz/mics/content-type.yaml)
-
-Example for complex signature in fuzz mode [open-redirect-02.yaml](https://github.com/jaeles-project/jaeles-signatures/blob/master/fuzz/open-redirect/open-redirect-param.yaml)
-
 ## Note for using Fuzz signatures
 Fuzz signatures may have many false positive because I can't defined exactly what is vulnerable for everything. So make sure you gotta know what are you doing here.
 
@@ -85,6 +75,79 @@ Fuzz signatures may have many false positive because I can't defined exactly wha
 | ![rabbitmq-cred.png](https://github.com/jaeles-project/jaeles-plugins/blob/master/imgs/rabbitmq-cred.png?raw=true) [**RabbitMQ Default Credentials**](https://youtu.be/ed4n1sCNu3s) | ![jenkins-xss.png](https://github.com/jaeles-project/jaeles-plugins/blob/master/imgs/jenkins-xss.png?raw=true) [**Jenkins XSS CVE-2020-2096**](https://youtu.be/JfihhEOEWSE) |
 
 <h4 align='center'> More showcase can be found <a href="https://jaeles-project.github.io/showcases/">here</a></h4>
+
+
+### Featured signatures
+
+```
+cves
+├── aircontrol-rce.yaml
+├── citrix-lfi.yaml
+├── citrix-rce.yaml
+├── citrix-sharefile-exposed.yaml
+├── harboar-cve-2019-16097.yaml
+├── iplanet-disclosure.yaml
+├── jenkins-audit-xss.yaml
+├── jenkins-gitlab-xss.yaml
+├── jenkins-subversion-xss.yaml
+├── jenkins-xss.yaml
+├── jira-lfi.yaml
+├── jira-ssrf.yaml
+├── joomla-lfi-comfabrik.yaml
+├── joomla-sqli-hdwplayer.yaml
+├── kong-cve-2020-11710\ copy.yaml
+├── kong-cve-2020-11710.yaml
+├── nextjs-disclosure.yaml
+├── nexus-cve-2019-7238.yaml
+├── openproject-sqli.yaml
+├── php7-rce.yaml
+├── pulse-vpn-lfi.yaml
+├── rails-cve-2018-3760.yaml
+├── rails-cve-2019-5418.yaml
+├── solr-rce.yaml
+├── splunk-license.yaml
+├── spring-cve-2020-5405.yaml
+├── spring-lfi.yaml
+├── tomcat-jkstatus.yaml
+├── tomcat-open-redirect.yaml
+├── tomcat-put-method.yaml
+├── vbulletin-sqli.yaml
+├── wordpress-lfi.yaml
+└── zimbra-xxe.yaml
+common
+├── directory-listing.yaml
+├── docker-api.yaml
+├── docker-unauth.yaml
+├── go-pprof-exposed.yaml
+├── hadoop-unauth.yaml
+├── iis-directory-listing.yaml
+├── joomla-host-injection.yaml
+├── nginx-vhost-xss.yaml
+├── phpdebug.yaml
+├── rocketmq-console.yaml
+├── route-bypass.yaml
+├── service-desk-signup.yaml
+├── sonarqube-cred.yaml
+├── spark-unauth.yaml
+├── spring-probe.yaml
+├── subdomain-takeover.yaml
+├── wordpress-directory-listing.yaml
+├── wordpress-misconfig.yaml
+└── zabbix-console.yaml
+sensitive
+├── dot-secret.yaml
+├── gitleak.yaml
+├── log-secret.yaml
+├── secret-path.yaml
+└── stas.yaml
+```
+
+***
+
+### Financial Contributors
+
+Become a financial contributor and help us sustain our community. [[Contribute](https://opencollective.com/jaeles-project/contribute)]
+
 
 ## License
 

@@ -1,5 +1,6 @@
 # info to search signature
 id: open-path-fuzz-01
+level: 2
 type: fuzz
 info:
   name: Open Redirect FUZZ on Path 01

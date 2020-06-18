@@ -1,7 +1,7 @@
 # info to search signature
 id: lfi-path-01
 type: fuzz
-level: 1
+level: 2
 info:
   name: LFI on Headers 01
   risk: High

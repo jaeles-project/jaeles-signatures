@@ -1,7 +1,7 @@
 # info to search signature
 id: lfi-path-windows-01
 type: fuzz
-level: 1
+level: 2
 info:
   name: LFI on Path Windows
   risk: High

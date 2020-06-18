@@ -1,5 +1,6 @@
 id: open-param-fuzz-01
 type: fuzz
+level: 2
 info:
   name: Open Redirect FUZZ on Param
   risk: Medium

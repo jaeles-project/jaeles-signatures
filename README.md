@@ -85,6 +85,7 @@ cves
 ├── citrix-lfi.yaml
 ├── citrix-rce.yaml
 ├── citrix-sharefile-exposed.yaml
+├── graphql-playround-xss.yaml
 ├── harboar-cve-2019-16097.yaml
 ├── iplanet-disclosure.yaml
 ├── jenkins-audit-xss.yaml
@@ -131,6 +132,8 @@ common
 ├── spark-unauth.yaml
 ├── spring-probe.yaml
 ├── subdomain-takeover.yaml
+├── unauthen-elastic.yaml
+├── unauthen-kibana.yaml
 ├── wordpress-directory-listing.yaml
 ├── wordpress-misconfig.yaml
 └── zabbix-console.yaml

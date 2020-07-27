@@ -2,6 +2,7 @@ id: svn-leak-01
 info:
   name: SVN Leak Source
   risk: Medium
+  confidence: Certain
 
 params:
   - root: '{{.BaseURL}}'

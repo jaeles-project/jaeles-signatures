@@ -1,6 +1,5 @@
 id: sensitive-01-01
-# this is required
-type: list
+donce: true
 info:
   name: Common Secret file
   risk: Medium

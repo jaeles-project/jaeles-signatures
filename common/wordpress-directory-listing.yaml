@@ -11,6 +11,7 @@ variables:
       wp-includes/
       wp-includes/images/
       wp-content/
+      wp-content/uploads/
       wp-content/themes/
       wp-content/plugins/
       wp-content/plugins/hustle/views/admin/dashboard/

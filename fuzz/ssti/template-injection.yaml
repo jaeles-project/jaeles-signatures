@@ -7,10 +7,10 @@ info:
 
 # origin: gonna come from Burp
 payloads:
-    - '${7*191}'
-    - '${{"{{"}}7*191{{"}}"}}'
-    - '<%= 7 * 191 %>'
-    - '#{ 7 * 191 }'
+    - '${3*313373133731337}'
+    - '${{"{{"}}3*313373133731337{{"}}"}}'
+    - '<%= 3 * 313373133731337 %>'
+    - '#{ 3 * 313373133731337 }'
 
 requests:
   - generators:
@@ -21,7 +21,7 @@ requests:
     # if response have result of template code above
     detections:
       - >-
-        StringSearch("response", "1337") && (StringCount("response", "1337") > StringCount("oresponse", "1337"))
+        StringSearch("response", "940119401194011") && (StringCount("response", "940119401194011") > StringCount("oresponse", "940119401194011"))
   # another request builder with URL encode the payload
   - encoding: URL()
     generators:
@@ -32,5 +32,5 @@ requests:
     # if response have result of template code above
     detections:
       - >-
-        StringSearch("response", "1337") && (StringCount("response", "1337") > StringCount("oresponse", "1337"))
+        StringSearch("response", "940119401194011") && (StringCount("response", "940119401194011") > StringCount("oresponse", "940119401194011"))
 

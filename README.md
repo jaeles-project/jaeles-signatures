@@ -12,7 +12,7 @@
 
 <p align="center">
   <h4>
-    This repo only contain Default Signatures for  project. Pull requests or any ideas are welcome.
+    This repo only contain Default Signatures for <a href="https://github.com/jaeles-project/jaeles">Jaeles</a> project. Pull requests or any ideas are welcome.
   </h4>
   <h4>
   Please read the Official Documentation <a href="https://jaeles-project.github.io/signatures/">here</a> for writing your own signature.

@@ -1,4 +1,5 @@
-id: svn-leak-01
+id: svn-leak
+donce: true
 info:
   name: SVN Leak Source
   risk: Medium

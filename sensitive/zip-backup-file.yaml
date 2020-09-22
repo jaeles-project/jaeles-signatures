@@ -1,0 +1,105 @@
+id: sensitive-zip-file
+donce: true
+info:
+  name: Common ZIP Backup File
+  risk: Potential
+  confidence: Tentative
+
+params:
+  - root: "{{.BaseURL}}"
+
+origin:
+  method: GET
+  redirect: false
+  headers:
+    - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:55.0) Gecko/20100101 Firefox/55
+  url: >-
+    {{.BaseURL}}/hopefully404get.zip
+
+variables:
+  - secret: |
+      .0.zip
+      .2.zip
+      .org.zip
+      .zip
+      1.sql.zip
+      1.zip
+      2.zip
+      2010.zip
+      2011.zip
+      2012.zip
+      2013.zip
+      2014.zip
+      2015.zip
+      2016.zip
+      2017.zip
+      2018.zip
+      2019.zip
+      Library.zip
+      archive.zip
+      backup.sql.zip
+      backup.zip
+      backups.zip
+      classes.zip
+      clients.zip
+      cstartup.zip
+      dat.zip
+      data.sql.zip
+      data.zip
+      databack.zip
+      databackup.zip
+      databak.zip
+      db.sql.zip
+      db.zip
+      db_backup.sql.zip
+      db_backup.zip
+      dbadmin.sql.zip
+      dbadmin.zip
+      dbase.sql.zip
+      dbase.zip
+      dbdump.sql.zip
+      dbdump.zip
+      dump.sql.zip
+      dump.zip
+      eroticos.zip
+      forum.zip
+      home.sql.zip
+      home.zip
+      i.zip
+      images.zip
+      index.zip
+      joomla.zip
+      js.zip
+      library.zip
+      mysql.sql.zip
+      mysql.zip
+      oldsite.zip
+      photos.zip
+      qs.zip
+      site.sql.zip
+      sql.sql.zip
+      sql.zip
+      temp.sql.zip
+      test.zip
+      upload.sql.zip
+      users.sql.zip
+      users.zip
+      vb.zip
+      web.sql.zip
+      web.zip
+      wp.zip
+      ws.zip
+      www.sql.zip
+      www.zip
+      wwwroot.zip
+
+requests:
+  - method: GET
+    redirect: false
+    headers:
+      - User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3984.0 Safari/537.36
+    url: >-
+      {{.root}}/{{.secret}}
+    detections:
+      - >-
+        StatusCode() == 200 && !RegexSearch("response", "(?i)(Oops!|Whoops!|AutodiscoverService|not\sfound|Request\sRejected|Access\sDenied|a\sbad\sURL|has\sbeen\slocked)") && (RegexSearch("resHeaders", ".*Content-Type:.*octet-stream") || RegexSearch("resHeaders", "text/plain")) && (Math.abs(ContentLength() - OriginContentLength()) > 100) && !RegexSearch("body", "(?i)(\<\!doctype|\<html|\<head|\<body)") && ContentLength('body') > 100

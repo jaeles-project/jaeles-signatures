@@ -23,6 +23,12 @@
 
 ### Installation
 
+```
+jaeles config init
+```
+
+Or
+
 Try to clone signatures folder to somewhere like this
 ```
 git clone --depth=1 https://github.com/jaeles-project/jaeles-signatures /tmp/jaeles-signatures/
@@ -55,6 +61,28 @@ Examples:
   jaeles scan -G -c 50 -s '/tmp/custom-signature/.*' -U list_of_urls.txt
   jaeles scan -v -s '~/my-signatures/products/wordpress/.*' -u 'https://wp.example.com/blog/' -p 'root=[[.URL]]'
   cat urls.txt | grep 'interesting' | jaeles scan -c 50 -s /tmp/jaeles-signatures/cves/sample.yaml -U list_of_urls.txt --proxy http://127.0.0.1:8080
+
+Config Command examples:
+  # Init default signatures
+  jaeles config init
+
+  # Update latest signatures
+  jaeles config update
+  jaeles config update --repo http://github.com/jaeles-project/another-signatures --user admin --pass admin
+  jaeles config update --repo git@github.com/jaeles-project/another-signatures -K your_private_key
+
+  # Reload signatures from a standard signatures folder (contain passives + resources)
+  jaeles config reload --signDir ~/standard-signatures/
+
+  # Add custom signatures from folder
+  jaeles config add --signDir ~/custom-signatures/
+
+  # Clean old stuff
+  jaeles config clean
+
+  # More examples
+  jaeles config add --signDir /tmp/standard-signatures/
+  jaeles config cred --user sample --pass not123456
 
 ```
 

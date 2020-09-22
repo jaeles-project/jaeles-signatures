@@ -1,0 +1,31 @@
+id: mobileiron-rce-probe
+info:
+  name: Mobileiron RCE Probe CVE-2020-15505
+  risk: Potential
+
+params:
+  - root: '{{.BaseURL}}'
+  - desr: 'YwIASAAEdGVzdE0='
+
+variables:
+  - endpoint: |
+      /mifs/.;/services/LogService
+
+requests:
+  - method: POST
+    redirect: false
+    url: >-
+      {{.root}}{{.endpoint}}
+    headers:
+      - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:55.0) Gecko/20100101 Firefox/55
+      - Content-Type: x-application/hessian
+      - Referer: '{{.BaseURL}}'
+    body: |
+      {{ .desr | b64dec }}
+    detections:
+      - >-
+        StatusCode() == 200 && StringSearch("response", "application/x-hessian") && ContentLength('body') == 0
+
+references:
+  - blog: https://blog.orange.tw/2020/09/how-i-hacked-facebook-again-mobileiron-mdm-rce.html
+  - poc: https://github.com/iamnoooob/CVE-Reverse/tree/master/CVE-2020-15505

@@ -15,5 +15,5 @@ requests:
     # Only do passive check if response is 200
     detections:
       - >-
-        StatusCode() == 200 && ContentLength("body") > 100 && DoPassive()
+        StatusCode() == 200 && ContentLength("body") > 100
 

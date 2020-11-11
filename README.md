@@ -9,7 +9,6 @@
 
 ***
 
-
 <p align="center">
   <h4>
     This repo only contain Default Signatures for <a href="https://github.com/jaeles-project/jaeles">Jaeles</a> project. Pull requests or any ideas are welcome.
@@ -117,6 +116,18 @@ Fuzz signatures may have many false positive because I can't defined exactly wha
 ### Financial Contributors
 
 Become a financial contributor and help us sustain our community. [[Contribute](https://opencollective.com/jaeles-project/contribute)]
+
+
+## Special Thanks
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/cvebase/cvebase.com/main/assets/cvebase-logo.png" alt="cvebase" title="cvebase" />
+<p align="center">
+Explore the latest vulnerabilities at <a href="https://cvebase.com" >cvebase.com</a>
+</p>
+</p>
+
+
 
 
 ## License

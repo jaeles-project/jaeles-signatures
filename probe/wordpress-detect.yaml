@@ -1,7 +1,7 @@
-id: tech-fin-aem
+id: tech-fin-wordpress
 noutput: true # disable store output as a file
 info:
-  name: AEM detect
+  name: WordPress Detect
   risk: Info
 
 requests:

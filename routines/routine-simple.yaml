@@ -1,0 +1,21 @@
+id: wordpress-routine
+type: routine # required
+info:
+  name: Wordpress Routine
+  risk: Potential
+
+params:
+  - root: '{{.BaseURL}}'
+
+routines:
+  # {{.BaseSign}} is default at ~/.jaeles/base-signatures/
+  - signs:
+      - wp: '{{.BaseSign}}/probe/dependencies/gemfile-exposed.yaml'
+    logics:
+      # wp() true mean
+      - expr: 'wp()'
+        invokes:
+          - '{{.BaseSign}}/common/wordpress-directory-listing.yaml'
+          - '{{.BaseSign}}/common/wordpress-misconfig.yaml'
+          - '{{.BaseSign}}/common/wordpress-rest-api.yaml'
+          - '{{.BaseSign}}/common/wordpress-user-enum.yaml'

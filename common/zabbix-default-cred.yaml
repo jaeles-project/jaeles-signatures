@@ -1,5 +1,4 @@
-# info to search signature
-id: cred-zabbix-01
+id: zabbix-default-cred
 info:
   name: Zabbix default credentials
   risk: High

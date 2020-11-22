@@ -83,6 +83,8 @@ Config Command examples:
   jaeles config add --signDir /tmp/standard-signatures/
   jaeles config cred --user sample --pass not123456
 
+For full Usage:
+  jaeles -hh
 ```
 
 ***
@@ -99,6 +101,7 @@ Jaeles look for signature as a single file so you can structure it as whatever y
 | **probe**      | Used for detect some technology used by the target|
 | **passives**      | Used for [passive detection](https://jaeles-project.github.io/signatures/passive/)|
 | **fuzz**       | Some common case for fuzz mode (I know a lot of false positive here) |
+| **routines**       | Routines example |
 
 ## Note for using Fuzz signatures
 Fuzz signatures may have many false positive because I can't defined exactly what is vulnerable for everything. So make sure you gotta know what are you doing here.

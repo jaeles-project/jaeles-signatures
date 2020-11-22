@@ -12,7 +12,7 @@ routines:
   - signs:
       - wp: '{{.BaseSign}}/probe/dependencies/gemfile-exposed.yaml'
     logics:
-      # wp() true mean
+      # wp() is true when signatures at {{.BaseSign}}/probe/wordpress-detect.yaml found something
       - expr: 'wp()'
         invokes:
           - '{{.BaseSign}}/common/wordpress-directory-listing.yaml'

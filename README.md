@@ -52,7 +52,7 @@ Scan Usage example:
   jaeles scan -s <signature> -s <another-selector> -u http://example.com
   jaeles scan -G -s <signature> -s <another-selector> -x <exclude-selector> -u http://example.com
   cat list_target.txt | jaeles scan -c 100 -s <signature>
-
+  jaeles scan -s '/tmp/custom-signature/sensitive/.*' -L 2 --fi
 
 Examples:
   jaeles scan -s 'jira' -s 'ruby' -u target.com

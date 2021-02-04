@@ -1,4 +1,5 @@
 id: sensitive-sql-file
+filter: true
 donce: true
 info:
   name: Common SQL Backup File
@@ -834,4 +835,4 @@ requests:
       {{.root}}/{{.secret}}
     detections:
       - >-
-        StatusCode() == 200 && !RegexSearch("response", "(?i)(Oops!|Whoops!|AutodiscoverService|not\sfound|Request\sRejected|Access\sDenied|a\sbad\sURL|has\sbeen\slocked)") && (RegexSearch("resHeaders", ".*Content-Type:.*octet-stream") || RegexSearch("resHeaders", "application/x-sql")) && (Math.abs(ContentLength() - OriginContentLength()) > 100) && !RegexSearch("body", "(?i)(\<\!doctype|\<html|\<head|\<body)") && ContentLength('body') > 100
+        Diff() && StatusCode() == 200 && !RegexSearch("response", "(?i)(Oops!|Whoops!|AutodiscoverService|not\sfound|Request\sRejected|Access\sDenied|a\sbad\sURL|has\sbeen\slocked)") && (RegexSearch("resHeaders", ".*Content-Type:.*octet-stream") || RegexSearch("resHeaders", "application/x-sql")) && (Math.abs(ContentLength() - OriginContentLength()) > 100) && !RegexSearch("body", "(?i)(\<\!doctype|\<html|\<head|\<body)") && ContentLength('body') > 100

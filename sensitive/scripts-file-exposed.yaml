@@ -1,5 +1,5 @@
 id: scripts-file-exposed
-donce: true
+filter: true
 info:
   name: Scripts File Exposed
   risk: Potential
@@ -902,4 +902,4 @@ requests:
       {{.root}}/{{.secret}}
     detections:
       - >-
-        StatusCode() == 200 && !RegexSearch("response", "(?i)(Oops!|Whoops!|AutodiscoverService|not\sfound|Request\sRejected|Access\sDenied|a\sbad\sURL|has\sbeen\slocked)") && (RegexSearch("resHeaders", ".*Content-Type:.*octet-stream") || RegexSearch("resHeaders", "application/x-sh")) && (Math.abs(ContentLength() - OriginContentLength()) > 20) && ContentLength('body') > 100
+        Diff() && StatusCode() == 200 && !RegexSearch("response", "(?i)(Oops!|Whoops!|AutodiscoverService|not\sfound|Request\sRejected|Access\sDenied|a\sbad\sURL|has\sbeen\slocked)") && (RegexSearch("resHeaders", ".*Content-Type:.*octet-stream") || RegexSearch("resHeaders", "application/x-sh")) && (Math.abs(ContentLength() - OriginContentLength()) > 20) && ContentLength('body') > 100 && !StringSearch("oresHeaders", "text/plain") && !RegexSearch("body", "(?i)(\<\!doctype|\<html|\<head|\<body)")

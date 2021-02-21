@@ -46,6 +46,7 @@ variables:
       autogen.sh
       autoload.sh
       autorun.sh
+      aws.sh
       azuredeploy.sh
       backup.sh
       base.sh
@@ -884,6 +885,7 @@ variables:
       windtest.sh
       with_venv.sh
       worker.sh
+      wp-setup.sh
       wpa_supplicant.sh
       wps-hotplug.sh
       wrapmake.sh

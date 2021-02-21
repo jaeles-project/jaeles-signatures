@@ -33,7 +33,7 @@ requests:
       {{.root}}
     detections:
       - >-
-        Diff() && StatusCode() == 200 && (OriginStatusCode() == 403 || OriginStatusCode() == 401) && !RegexSearch("response", "(?i)(Oops!|Whoops!|AutodiscoverService|not\sfound|Request\sRejected|Access\sDenied|a\sbad\sURL|has\sbeen\slocked)") && !RegexSearch("body", "(?i)(\<\!doctype|\<html|\<head|\<body)") && (Math.abs(ContentLength() - OriginContentLength()) > 200) && ContentLength('body') > 200
+        Diff() && StatusCode() == 200 && (OriginStatusCode() == 403 || OriginStatusCode() == 401) && !RegexSearch("response", "(?i)(Oops!|Whoops!|AutodiscoverService|not\sfound|Request\sRejected|Access\sDenied|a\sbad\sURL|has\sbeen\slocked)") && (Math.abs(ContentLength() - OriginContentLength()) > 200) && ContentLength('body') > 200
 
   - method: GET
     redirect: false
@@ -44,4 +44,4 @@ requests:
       {{.root}}
     detections:
       - >-
-        Diff() && StatusCode() == 200 && OriginStatusCode() >= 401 && !RegexSearch("response", "(?i)(Oops!|Whoops!|AutodiscoverService|not\sfound|Request\sRejected|Access\sDenied|a\sbad\sURL|has\sbeen\slocked)") && !RegexSearch("body", "(?i)(\<\!doctype|\<html|\<head|\<body)") && (Math.abs(ContentLength() - OriginContentLength()) > 200) && ContentLength('body') > 200
+        Diff() && StatusCode() == 200 && OriginStatusCode() >= 401 && !RegexSearch("response", "(?i)(Oops!|Whoops!|AutodiscoverService|not\sfound|Request\sRejected|Access\sDenied|a\sbad\sURL|has\sbeen\slocked)") && (Math.abs(ContentLength() - OriginContentLength()) > 200) && ContentLength('body') > 200

@@ -116,6 +116,15 @@ Fuzz signatures may have many false positive because I can't defined exactly wha
 
 ***
 
+## What should I do if Jaeles found a vulnerability?
+
+1. Read the signature file.
+2. Seriously, read the signature file.
+3. Remember that you were warned twice about reading the signature file.
+4. Read the references and detection part to understand why Jaeles said it's vulnerable.
+5. Manually verify the vulnerability.
+
+
 ### Financial Contributors
 
 Become a financial contributor and help us sustain our community. [[Contribute](https://opencollective.com/jaeles-project/contribute)]

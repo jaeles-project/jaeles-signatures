@@ -8,13 +8,25 @@ info:
 
 # origin: gonna come from Burp
 payloads:
-    - \{\{156687*2\}\}	
+  - >-
+    <%= 123 * 421 %>inject
+  - >-
+    #{ 123 * 421 }inject
+  - >-
+    {{123*421}}inject
+  - >-
+    ${123*421}inject
+  - >-
+    ${{123*421}}inject
+
       
 requests:
   - generators:
       # Change exist content type or adding new one
       - Query("{{.payload}}")
       - Path("{{.payload}}", "*")
+      - Body("{{.payload}}")
+      - Cookie("[[.original]]{{.payload}}")
     detections:
       - >-
-        StringSearch("response", "313374")
+        StringSearch("response", "51783inject")

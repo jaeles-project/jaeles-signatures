@@ -119,4 +119,4 @@ requests:
       - Query("[[.original]]{{.payload}}", "{{.name}}")
     detections:
       - >-
-       RegexSearch("response", "mysql_fetch_|not a valid MySQL|not a legal PLSQL identifer|mysql_connect\(\)|(SELECT\s+[^:>]+\sFROM\s+[^:>]+\sWHERE\s+)|(at\s[[:alnum:]\/\._]+\sline\s\d+)|ociparse\(\):|must be a syntactically valid variable|CFSQLTYPE|Unknown column '|Microsoft OLE DB Provider for SQL|SQL QUERY FAILURE:|Syntax error.{1,50}in query|You have an error in your SQL syntax|Unclosed quotation mark") || ResponseTime() > 8
+       RegexSearch("response", "mysql_fetch_|not a valid MySQL|not a legal PLSQL identifer|mysql_connect\(\)|(SELECT\s+[^:>]+\sFROM\s+[^:>]+\sWHERE\s+)|(at\s[[:alnum:]\/\._]+\sline\s\d+)|ociparse\(\):|must be a syntactically valid variable|CFSQLTYPE|Unknown column '|Microsoft OLE DB Provider for SQL|SQL QUERY FAILURE:|Syntax error.{1,50}in query|You have an error in your SQL syntax|Unclosed quotation mark") || ResponseTime() > 20

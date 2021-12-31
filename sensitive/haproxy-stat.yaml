@@ -1,5 +1,6 @@
 id: haproxy-stat
 donce: true
+level: 2
 info:
   name: HA Proxy Statistics
   risk: Medium

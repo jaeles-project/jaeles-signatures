@@ -1,6 +1,7 @@
 id: random-header-fuzz-01
 type: fuzz
 level: 1
+level: 4
 info:
   name: Random Fuzz on Header Basic
   risk: Info

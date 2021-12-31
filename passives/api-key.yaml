@@ -1,7 +1,7 @@
 name: "api key pattern"
 desc: "grep for api key pattern"
 risk: "High"
-level: 1
+level: 3
 rules:
   - id: api-key-01
     reason: "Artifactory"

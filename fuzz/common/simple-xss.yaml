@@ -1,6 +1,7 @@
 # info to search signature
 id: fuzz-XSS
 type: fuzz
+level: 4
 info:
   name: XSS Fuzz
   risk: High

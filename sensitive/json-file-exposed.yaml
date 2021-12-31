@@ -1,5 +1,6 @@
 id: json-file-exposed
 filter: true
+level: 2
 info:
   name: JSON File Exposed
   risk: Potential

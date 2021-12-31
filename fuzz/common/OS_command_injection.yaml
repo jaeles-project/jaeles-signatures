@@ -1,6 +1,7 @@
 # info to search signature
 id: fuzz-OS-Comman_injection
 type: fuzz
+level: 4
 info:
   name: OS Commaind Injection Fuzz
   risk: High

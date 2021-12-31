@@ -1,5 +1,6 @@
 id: SSRF
 type: fuzz
+level: 4
 info:
   name: SSRF
   risk: High

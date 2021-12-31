@@ -1,6 +1,7 @@
 # info to search signature
 id: lfi-Unix
 type: fuzz
+level: 4
 info:
   name: LFI UNIX
   risk: High

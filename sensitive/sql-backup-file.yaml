@@ -1,6 +1,7 @@
 id: sensitive-sql-file
 filter: true
 donce: true
+level: 2
 info:
   name: Common SQL Backup File
   risk: Potential

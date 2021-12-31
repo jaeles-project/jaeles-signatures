@@ -1,6 +1,7 @@
 # info to search signature
 id: crlf-fuzz-02
 type: fuzz
+level: 4
 info:
   name: CRLF Potential
   risk: Medium

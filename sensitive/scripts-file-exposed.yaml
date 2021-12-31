@@ -1,5 +1,6 @@
 id: scripts-file-exposed
 filter: true
+level: 2
 info:
   name: Scripts File Exposed
   risk: Potential

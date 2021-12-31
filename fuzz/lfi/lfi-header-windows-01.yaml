@@ -2,6 +2,7 @@
 id: lfi-path-windows-01
 type: fuzz
 level: 2
+level: 4
 info:
   name: LFI on Path Windows
   risk: High

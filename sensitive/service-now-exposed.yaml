@@ -1,5 +1,6 @@
 id: service-now-exposed
 donce: true
+level: 2
 info:
   name: ServiceNow Unauth Access (Need to manual bruteforce for sensitive document)
   risk: Potential

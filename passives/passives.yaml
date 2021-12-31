@@ -1,5 +1,6 @@
 name: 'common pattern'
 desc: 'grep for common interesting pattern'
+level: 3
 rules:
   - id: directory-listing-01
     reason: 'Directory Listing'

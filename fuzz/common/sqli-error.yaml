@@ -1,6 +1,7 @@
 # info to search signature
 id: SQLi-Error
 type: fuzz
+level: 4
 info:
   name: SQLi Error detection
   risk: High

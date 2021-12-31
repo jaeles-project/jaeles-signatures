@@ -1,5 +1,6 @@
 id: common-error-01
 type: fuzz
+level: 4
 info:
   name: Common case to trigger the error
   risk: Info

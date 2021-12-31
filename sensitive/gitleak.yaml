@@ -1,5 +1,6 @@
 id: git-leak-01
 donce: true
+level: 2
 info:
   name: Git Leak Source
   risk: Medium

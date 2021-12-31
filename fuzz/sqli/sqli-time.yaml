@@ -1,6 +1,7 @@
 id: sqli-param-fuzz-02
 type: fuzz
 level: 2
+level: 4
 info:
   name: SQL Injection on Parameter 02
   risk: High

@@ -1,5 +1,6 @@
 id: svn-leak
 donce: true
+level: 2
 info:
   name: SVN Leak Source
   risk: Medium

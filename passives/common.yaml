@@ -1,7 +1,7 @@
 name: "common pattern"
 desc: "grep for common interesting pattern"
 risk: "Medium"
-level: 1
+level: 3
 rules:
   - id: directory-listing-01
     reason: "Directory Listing"

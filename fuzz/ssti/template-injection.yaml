@@ -1,6 +1,7 @@
 # info to search signature
 id: template-injection-01
 type: fuzz
+level: 4
 info:
   name: Template Injection
   risk: High

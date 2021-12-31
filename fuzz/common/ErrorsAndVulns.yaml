@@ -3,6 +3,7 @@
 
 # info to search signature
 id: Errors-Vulns-01
+level: 4
 info:
   name: Errors and Vulnerabilities Detection
   risk: Critical

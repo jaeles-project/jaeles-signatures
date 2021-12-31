@@ -1,6 +1,7 @@
 # info to search signature
 id: Open-Redirect
 type: fuzz
+level: 4
 info:
   name: Open Redirect
   risk: Low

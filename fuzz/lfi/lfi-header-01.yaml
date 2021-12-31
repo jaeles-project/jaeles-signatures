@@ -2,6 +2,7 @@
 id: lfi-path-01
 type: fuzz
 level: 2
+level: 4
 info:
   name: LFI on Headers 01
   risk: High

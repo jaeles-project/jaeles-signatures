@@ -1,4 +1,5 @@
 id: aws-ec2-sto
+level: 2
 type: dns
 info:
   name: AWS EC2 Subdomain Takeover

@@ -1,6 +1,7 @@
 id: random-param-fuzz-02
 type: fuzz
 level: 1
+level: 4
 info:
   name: Random Fuzz on Param Basic 02
   risk: Info

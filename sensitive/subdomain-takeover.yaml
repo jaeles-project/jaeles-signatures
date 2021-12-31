@@ -1,4 +1,5 @@
 id: subdomain-takeover-content
+level: 2
 info:
   name: Subdomain Takeover Content Check
   risk: Potential

@@ -1,6 +1,7 @@
 id: env-exposed
 filter: true
 donce: true
+level: 2
 info:
   name: Common Environment File Exposed
   risk: Potential

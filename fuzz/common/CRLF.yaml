@@ -1,5 +1,6 @@
 id: CRLF-Injection-Fuzz
 type: fuzz
+level: 4
 info:
   Author: Gocha Okradze
   name: CRLF Injection

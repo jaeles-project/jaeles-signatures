@@ -1,9 +1,7 @@
-
 <p align="center">
-  <img alt="Jaeles" src="https://image.flaticon.com/icons/svg/1432/1432425.svg" height="140" />
+  <img alt="OsmedeusEngine" src="https://raw.githubusercontent.com/osmedeus/assets/main/logo-transparent.png" height="200" />
   <p align="center">
-    <a href=""><img alt="Software License" src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square"></a>
-    <a href="http://github.com/jaeles-project/jaeles"><img alt="Release" src="https://img.shields.io/github/v/release/jaeles-project/jaeles.svg"></a>
+    This project was part of Osmedeus Engine. Check out how it was integrated at <a href="https://docs.osmedeus.org">@OsmedeusEngine</a>
   </p>
 </p>
 

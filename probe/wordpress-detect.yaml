@@ -1,4 +1,5 @@
 id: tech-fin-wordpress
+level: 3
 noutput: true # disable store output as a file
 info:
   name: WordPress Detect

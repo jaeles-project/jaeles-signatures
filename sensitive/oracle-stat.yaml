@@ -1,5 +1,6 @@
 id: oracle-stat
 donce: true
+level: 2
 info:
   name: Oracle iPlanet Statistics
   risk: Medium

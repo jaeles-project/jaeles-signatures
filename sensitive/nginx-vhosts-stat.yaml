@@ -1,5 +1,6 @@
 id: nginx-vhosts-stat
 donce: true
+level: 2
 info:
   name: Nginx Vhost Stats
   risk: Medium

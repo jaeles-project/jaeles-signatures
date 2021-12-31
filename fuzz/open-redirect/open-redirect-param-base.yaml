@@ -1,6 +1,7 @@
 # info to search signature
 id: open-param-fuzz-base
 type: fuzz
+level: 4
 info:
   name: Open Redirect FUZZ on Existing Param
   risk: Medium

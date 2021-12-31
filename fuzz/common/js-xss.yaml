@@ -1,6 +1,7 @@
 # info to search signature
 id: fuzz-reflect-xss-in-js-code
 type: fuzz
+level: 4
 info:
   name: Reflect XSS in js code
   risk: High

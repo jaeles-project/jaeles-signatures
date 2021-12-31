@@ -1,4 +1,5 @@
 id: perl-status-page
+level: 2
 info:
   name: Apache mod_perl Status Page
   risk: Medium

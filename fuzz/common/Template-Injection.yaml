@@ -1,6 +1,7 @@
 # info to search signature
 id: TPL-Injection
 type: fuzz
+level: 4
 info:
   name: Template Injection
   risk: High

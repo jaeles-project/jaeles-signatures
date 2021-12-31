@@ -1,6 +1,7 @@
 id: common-forbidden-bypass
 filter: true
 donce: true
+level: 2
 info:
   name: Common Forbidden Bypass
   risk: Potential

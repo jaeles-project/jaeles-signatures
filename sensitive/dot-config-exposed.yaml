@@ -1,5 +1,6 @@
 id: dot-config-exposed
 filter: true
+level: 2
 info:
   name: Dot Config Exposed
   risk: Potential

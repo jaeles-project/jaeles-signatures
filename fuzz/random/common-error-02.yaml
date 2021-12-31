@@ -1,6 +1,7 @@
 id: common-error-02
 type: fuzz
 level: 2
+level: 4
 info:
   name: Common case to trigger the error 02
   risk: Info

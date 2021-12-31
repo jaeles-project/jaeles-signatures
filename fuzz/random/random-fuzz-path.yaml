@@ -1,5 +1,6 @@
 id: random-path-fuzz-01
 type: fuzz
+level: 4
 info:
   name: Random Fuzz on Path Basic
   risk: Info

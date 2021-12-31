@@ -1,4 +1,5 @@
 id: apache-status-page
+level: 2
 info:
   name: Apache Status Page
   risk: Medium

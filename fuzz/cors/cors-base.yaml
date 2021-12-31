@@ -1,6 +1,7 @@
 # info to search signature
 id: cors-fuzz-01
 type: fuzz
+level: 4
 info:
   name: CORS Misconfiguration Simple
   risk: Medium

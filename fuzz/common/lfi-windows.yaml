@@ -1,6 +1,7 @@
 # info to search signature
 id: lfi-windows
 type: fuzz
+level: 4
 info:
   name: LFI on Windows
   risk: High

@@ -1,6 +1,7 @@
 # info to search signature
 id: Host-Header_injection
 type: fuzz
+level: 4
 info:
   name: Host Header Injection
   risk: Medium
